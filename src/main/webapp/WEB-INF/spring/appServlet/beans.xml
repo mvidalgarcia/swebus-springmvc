@@ -16,22 +16,9 @@
 		<property name="basename" value="messages" />
 	</bean>
 	
-	<bean id="bookManagerService" class="impl.miw.business.usermanager.BookManagerEJBService">
-		<property name="times" value="3" />
-	</bean>
+	<bean id="userManager" class="impl.miw.business.usermanager.UserManager" />
+	
+	<bean id="userDataService" class="impl.miw.persistence.user.UserDAO" />
 
-	<bean id="bookManager" class="impl.miw.business.usermanager.UserManager">
-
-		<property name="disccounts">
-			<map>
-				<entry key="0" value="10" />
-				<entry key="1" value="20" />
-			</map>
-		</property>
-	</bean>
-
-
-	<bean id="ivaDataService" class="impl.miw.persistence.iva.IvaDAO" />
-	<bean id="bookDataService" class="impl.miw.persistence.book.UserDAO" />
 
 </beans>

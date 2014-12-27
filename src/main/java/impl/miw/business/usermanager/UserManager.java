@@ -13,7 +13,6 @@ public class UserManager implements UserManagerService {
 
 	@Autowired
 	private UserDataService userDataService;
-	
 
 	public void setUserDataService(UserDataService userDataService) {
 		this.userDataService = userDataService;
@@ -22,10 +21,10 @@ public class UserManager implements UserManagerService {
 	@Override
 	public boolean isUser(User user) throws Exception {
 		// TODO Auto-generated method stub
-		return false;
+		return this.userDataService.isUser(user);
 	}
 	
-	public User newUser(User user) throws Exception {
+	public boolean newUser(User user) throws Exception {
 		// TODO Auto-generated method stub
 		return this.userDataService.newUser(user);
 	}

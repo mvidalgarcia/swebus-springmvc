@@ -8,9 +8,9 @@
 	</head>
 
 
-<body onload='document.loginForm.email.focus();'>
+<body>
 	<center>
-		<h1><spring:message code="title"/></h1>
+		<a href="/Swebus"><h1><spring:message code="title"/></h1></a>
 		<br>
 		<h2><spring:message code="welcome"/></h2>
 	</center>
@@ -42,7 +42,12 @@
 		
 		<br />
 		<spring:message code="signup.gender"/>
-		<form:select path="gender" items="female, male"/>
+		<form:select path="gender">
+			<spring:message code="signup.gender.male" var="male"/>
+			<spring:message code="signup.gender.female" var="female"/>
+			<form:option value="male" label="${male}"/>
+			<form:option value="female" label="${female}"/>
+		</form:select>
 		<form:errors path="gender" />
 		
 		<br />
@@ -72,8 +77,8 @@
 		
 		<br />
 		<spring:message code="signup.password"/>
-		<form:password path="idCard" />
-		<form:errors path="idCard" />
+		<form:password path="password" />
+		<form:errors path="password" />
 		
 		<br />
 		<input name="submit" type="submit" value="<spring:message code="signup.submit"/>" />

@@ -7,7 +7,7 @@
 </head>
 <body>
 	<center>
-		<h1><spring:message code="title"/></h1>
+		<a href="/Swebus"><h1><spring:message code="title"/></h1></a>
 		<br>
 		<h2><spring:message code="welcome"/></h2>
 	</center>
