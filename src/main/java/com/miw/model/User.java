@@ -1,5 +1,8 @@
 package com.miw.model;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class User {
@@ -9,12 +12,15 @@ public class User {
 	@NotEmpty
 	private String lastName;
 	@NotEmpty
+	@Email
 	private String email;
+	@NotNull(message="ejejje")
 	private int phone;
 	@NotEmpty
 	private String gender;
 	@NotEmpty
 	private String address;
+	@NotNull(message="Tehe zipcode mandatory")
 	private int zipCode;
 	@NotEmpty
 	private String city;
