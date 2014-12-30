@@ -9,26 +9,21 @@
 
 
 <body>
-	<center>
-		<a href="/Swebus"><h1><spring:message code="title"/></h1></a>
-		<br>
-		<h2><spring:message code="welcome"/></h2>
-	</center>
-	<br>
+	<jsp:include page="header.jsp"/>
 	<h3><spring:message code="signin.title"/></h3>
 	<p><spring:message code="signin.introduce"/></p>
 
 	<form:form commandName="user">
-		<form:errors path="" />
+		<form:errors path="" cssClass="text-danger" />
 		<br />
 		<spring:message code="signin.email"/>
 		<form:input path="email" />
-		<form:errors path="email" />
+		<form:errors path="email" cssClass="text-danger"/>
 		
 		<br />
 		<spring:message code="signin.password"/>
 		<form:password path="password" />
-		<form:errors path="password" />
+		<form:errors path="password" cssClass="text-danger" />
 		
 		<br />
 		<input name="submit" type="submit" value="<spring:message code="signin.submit"/>" />

@@ -9,36 +9,31 @@
 
 
 <body>
-	<center>
-		<a href="/Swebus"><h1><spring:message code="title"/></h1></a>
-		<br>
-		<h2><spring:message code="welcome"/></h2>
-	</center>
-	<br> 
+	<jsp:include page="header.jsp"/>
 	<h3><spring:message code="signup.title"/></h3>
 	<p><spring:message code="signup.introduce"/></p>
 
 	<form:form commandName="user">
-		<form:errors path="" />
+		<form:errors path="" cssClass="text-danger" />
 		<br />
 		<spring:message code="signup.firstname"/>
 		<form:input path="firstName" />
-		<form:errors path="firstName" />
+		<form:errors path="firstName" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.lastname"/>
 		<form:input path="lastName" />
-		<form:errors path="lastName" />
+		<form:errors path="lastName" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.email"/>
 		<form:input path="email" />
-		<form:errors path="email" />
+		<form:errors path="email" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.phone"/>
 		<form:input path="phone" />
-		<form:errors path="phone" />
+		<form:errors path="phone" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.gender"/>
@@ -48,37 +43,37 @@
 			<form:option value="male" label="${male}"/>
 			<form:option value="female" label="${female}"/>
 		</form:select>
-		<form:errors path="gender" />
+		<form:errors path="gender" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.address"/>
 		<form:input path="address" />
-		<form:errors path="address" />
+		<form:errors path="address" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.zipcode"/>
 		<form:input path="zipCode" />
-		<form:errors path="zipCode" />
+		<form:errors path="zipCode" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.city"/>
 		<form:input path="city" />
-		<form:errors path="city" />
+		<form:errors path="city" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.county"/>
 		<form:input path="county" />
-		<form:errors path="county" />
+		<form:errors path="county" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.idcard"/>
 		<form:input path="idCard" />
-		<form:errors path="idCard" />
+		<form:errors path="idCard" cssClass="text-danger" />
 		
 		<br />
 		<spring:message code="signup.password"/>
 		<form:password path="password" />
-		<form:errors path="password" />
+		<form:errors path="password" cssClass="text-danger" />
 		
 		<br />
 		<input name="submit" type="submit" value="<spring:message code="signup.submit"/>" />

@@ -17,8 +17,10 @@
 	</bean>
 	
 	<bean id="userManager" class="impl.miw.business.usermanager.UserManager" />
-	
 	<bean id="userDataService" class="impl.miw.persistence.user.UserDAO" />
+	
+	<bean id="cityManager" class="impl.miw.business.citymanager.CityManager" />
+	<bean id="cityDataService" class="impl.miw.persistence.city.CityDAO" />
 
 
 </beans>
