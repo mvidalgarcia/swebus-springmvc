@@ -5,5 +5,6 @@ import com.miw.model.City;
 
 public interface CityDataService {
 		public Vector<City> getCities() throws Exception;
+		public Integer getIdByCityName(String cityName) throws Exception;
 
 }

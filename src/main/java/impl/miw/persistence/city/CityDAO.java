@@ -56,5 +56,40 @@ public class CityDAO implements CityDataService {
 		return resultado;
 	}
 
+	@Override
+	public Integer getIdByCityName(String cityName) throws Exception {
+		Integer resultado = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = null;
+
+		try {
+			String SQL_DRV = "org.hsqldb.jdbcDriver";
+			String SQL_URL = "jdbc:hsqldb:hsql://localhost/swebus";
+
+			// Obtenemos la conexión a la base de datos.
+			Class.forName(SQL_DRV);
+			con = DriverManager.getConnection(SQL_URL, "mvidalgarcia", "swebus");
+
+			ps = con.prepareStatement("select id from city where name=?");
+			ps.setString(1, cityName);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				resultado = rs.getInt("id");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw (e);
+		} finally {
+			try {
+				ps.close();
+				con.close();
+			} catch (Exception e) {
+			}
+		}
+		return resultado;
+	}
+
 
 }

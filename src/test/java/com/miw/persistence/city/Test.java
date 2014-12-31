@@ -19,6 +19,12 @@ public class Test {
 		for(City res : resultados){
 			System.out.println(res);
 		}
+		
+		/* OBTENER IDS DE CIUDADES A PARTIR DEL NOMBRE */
+		System.out.println(cityDao.getIdByCityName("Linkoping"));
+		System.out.println(cityDao.getIdByCityName("Stockholm"));
+		System.out.println(cityDao.getIdByCityName("Madrid"));
+		System.out.println(cityDao.getIdByCityName("Malmo"));
 	}
 
 }

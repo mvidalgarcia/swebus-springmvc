@@ -6,13 +6,74 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script src="<c:url value="/resources/swebus/js/jquery-1.11.2.min.js" />"></script>
-<title><spring:message code="title.selectroute"/></title>
+<script
+	src="<c:url value="/resources/swebus/js/jquery-1.11.2.min.js" />"></script>
+<title><spring:message code="title.selectroute" /></title>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
-	<h3><spring:message code="showroutes.departure"/></h3>
-	<h3><spring:message code="showroutes.return"/></h3>
-	
+	<jsp:include page="header.jsp" />
+
+	<form:form method="POST" commandName="schedulesSelected">
+		<div>
+			<h4>
+				<spring:message code="showroutes.choose.departure" />
+				<c:out value="${reservation.cityFrom} - ${reservation.cityTo}"></c:out>
+				<c:out value="${reservation.departureDate}"></c:out>
+			</h4>
+			<br />
+			<table>
+				<tr>
+					<td><b><spring:message code="showroutes.departure" /></b></td>
+					<td><b><spring:message code="showroutes.arrival" /></b></td>
+					<td><b><spring:message code="showroutes.traveltime" /></b></td>
+					<td><b><spring:message code="showroutes.price" /></b></td>
+					<td><b><spring:message code="showroutes.select" /></b></td>
+				</tr>
+				<c:forEach items="${schedulesDeparture}" var="schedule">
+					<tr>
+						<td><c:out value="${schedule.hourDeparture}"></c:out></td>
+						<td><c:out value="${schedule.hourArrival}"></c:out></td>
+						<td><c:out
+								value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
+						<td><c:out value="${schedule.price}"></c:out></td>
+						<td><form:radiobutton path="idDepartureSchedule" value="${schedule.id}" /></td>
+						<td></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+
+		<c:if test="${not reservation.oneWayTrip}">
+			<div>
+				<h4>
+					<spring:message code="showroutes.choose.return" />
+					<c:out value="${reservation.cityTo} - ${reservation.cityFrom}"></c:out>
+					<c:out value="${reservation.returnDate}"></c:out>
+				</h4>
+				<br />
+				<table>
+					<tr>
+						<td><b><spring:message code="showroutes.departure" /></b></td>
+						<td><b><spring:message code="showroutes.arrival" /></b></td>
+						<td><b><spring:message code="showroutes.traveltime" /></b></td>
+						<td><b><spring:message code="showroutes.price" /></b></td>
+						<td><b><spring:message code="showroutes.select" /></b></td>
+					</tr>
+					<c:forEach items="${schedulesReturn}" var="schedule">
+						<tr>
+							<td><c:out value="${schedule.hourDeparture}"></c:out></td>
+							<td><c:out value="${schedule.hourArrival}"></c:out></td>
+							<td><c:out
+									value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
+							<td><c:out value="${schedule.price}"></c:out></td>
+							<td><form:radiobutton path="idReturnSchedule" value="${schedule.id}" /></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</c:if>
+	<input name="submit" type="submit" value="<spring:message code="showroutes.goon"/>" />
+	</form:form>
+
 </body>
 </html>

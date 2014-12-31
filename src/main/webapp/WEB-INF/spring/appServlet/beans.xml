@@ -21,6 +21,9 @@
 	
 	<bean id="cityManager" class="impl.miw.business.citymanager.CityManager" />
 	<bean id="cityDataService" class="impl.miw.persistence.city.CityDAO" />
+	
+	<bean id="timeManager" class="impl.miw.business.timemanager.TimeManager" />
+	<bean id="timeDataService" class="impl.miw.persistence.time.TimeDAO" />
 
 
 </beans>

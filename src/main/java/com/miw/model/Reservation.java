@@ -11,8 +11,10 @@ public class Reservation {
 	@NotEmpty
 	private String departureDate;
 	private String returnDate;
-	private String departureHour;
-	private String returnHour;
+	//Departure
+	private Time departureTime;
+	//Return
+	private Time returnTime;
 	private boolean oneWayTrip;
 	private Integer numberAdults;
 	private Integer numberYouths;
@@ -60,18 +62,6 @@ public class Reservation {
 	}
 	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
-	}
-	public String getDepartureHour() {
-		return departureHour;
-	}
-	public void setDepartureHour(String departureHour) {
-		this.departureHour = departureHour;
-	}
-	public String getReturnHour() {
-		return returnHour;
-	}
-	public void setReturnHour(String returnHour) {
-		this.returnHour = returnHour;
 	}
 	public boolean isOneWayTrip() {
 		return oneWayTrip;
@@ -139,13 +129,25 @@ public class Reservation {
 	public void setInsurance(boolean insurance) {
 		this.insurance = insurance;
 	}
+	public Time getDepartureTime() {
+		return departureTime;
+	}
+	public void setDepartureTime(Time departureTime) {
+		this.departureTime = departureTime;
+	}
+	public Time getReturnTime() {
+		return returnTime;
+	}
+	public void setReturnTime(Time returnTime) {
+		this.returnTime = returnTime;
+	}
 	@Override
 	public String toString() {
 		return "Reservation [code=" + code + ", cityFrom=" + cityFrom
 				+ ", cityTo=" + cityTo + ", price=" + price
 				+ ", departureDate=" + departureDate + ", returnDate="
-				+ returnDate + ", departureHour=" + departureHour
-				+ ", returnHour=" + returnHour + ", oneWayTrip=" + oneWayTrip
+				+ returnDate + ", departureTime=" + departureTime
+				+ ", returnTime=" + returnTime + ", oneWayTrip=" + oneWayTrip
 				+ ", numberAdults=" + numberAdults + ", numberYouths="
 				+ numberYouths + ", numberStudents=" + numberStudents
 				+ ", numberSeniors=" + numberSeniors + ", numberDisables="
@@ -154,4 +156,5 @@ public class Reservation {
 				+ priorityBoarding + ", bike=" + bike + ", insurance="
 				+ insurance + "]";
 	}
+	
 }
