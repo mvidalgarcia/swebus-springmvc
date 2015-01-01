@@ -1,4 +1,4 @@
-package impl.miw.presentation.routes;
+package impl.miw.presentation.schedule;
 
 public class Schedules {
 	private Integer idDepartureSchedule;
@@ -15,6 +15,11 @@ public class Schedules {
 	}
 	public void setIdDepartureSchedule(Integer idDepartureSchedule) {
 		this.idDepartureSchedule = idDepartureSchedule;
+	}
+	@Override
+	public String toString() {
+		return "Schedules [idDepartureSchedule=" + idDepartureSchedule
+				+ ", idReturnSchedule=" + idReturnSchedule + "]";
 	}
 
 }

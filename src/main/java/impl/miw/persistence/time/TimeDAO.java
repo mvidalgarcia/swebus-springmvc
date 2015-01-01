@@ -8,9 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
 
-import com.miw.model.City;
 import com.miw.model.Time;
-import com.miw.persistence.CityDataService;
 import com.miw.persistence.TimeDataService;
 
 
@@ -23,6 +21,7 @@ public class TimeDAO implements TimeDataService {
 	/**
 	 * Método que accede a la base de datos para obtener todas las ciudades
 	 */
+	@SuppressWarnings("resource")
 	public Vector<Time> getTimesByRoute(String cityFrom, String cityTo) throws Exception {
 		
 		// Inicializamos el Vector de retorno.
@@ -81,6 +80,7 @@ public class TimeDAO implements TimeDataService {
 		return resultado;
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public Time getTimeById(Integer id) throws Exception {
 		// Inicializamos el Vector de retorno.

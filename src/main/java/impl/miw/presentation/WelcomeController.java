@@ -49,7 +49,7 @@ public class WelcomeController {
 		if (!result.hasErrors()){
 			model.addAttribute("sessionUser", (String) session.getAttribute("sessionUser"));
 			System.out.println("[WelcomeController] Estado de la reserva: " + reservation);
-			return "redirect:showRoutes";
+			return "redirect:showSchedules";
 		}
 		else {
 			// Pasar ciudades al modelo

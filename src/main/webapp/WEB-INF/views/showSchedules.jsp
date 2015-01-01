@@ -14,20 +14,21 @@
 	<jsp:include page="header.jsp" />
 
 	<form:form method="POST" commandName="schedulesSelected">
+	<form:errors path="idDepartureSchedule" />
 		<div>
 			<h4>
-				<spring:message code="showroutes.choose.departure" />
+				<spring:message code="showschedules.choose.departure" />
 				<c:out value="${reservation.cityFrom} - ${reservation.cityTo}"></c:out>
 				<c:out value="${reservation.departureDate}"></c:out>
 			</h4>
 			<br />
 			<table>
 				<tr>
-					<td><b><spring:message code="showroutes.departure" /></b></td>
-					<td><b><spring:message code="showroutes.arrival" /></b></td>
-					<td><b><spring:message code="showroutes.traveltime" /></b></td>
-					<td><b><spring:message code="showroutes.price" /></b></td>
-					<td><b><spring:message code="showroutes.select" /></b></td>
+					<td><b><spring:message code="showschedules.departure" /></b></td>
+					<td><b><spring:message code="showschedules.arrival" /></b></td>
+					<td><b><spring:message code="showschedules.traveltime" /></b></td>
+					<td><b><spring:message code="showschedules.price" /></b></td>
+					<td><b><spring:message code="showschedules.select" /></b></td>
 				</tr>
 				<c:forEach items="${schedulesDeparture}" var="schedule">
 					<tr>
@@ -37,6 +38,7 @@
 								value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
 						<td><c:out value="${schedule.price}"></c:out></td>
 						<td><form:radiobutton path="idDepartureSchedule" value="${schedule.id}" /></td>
+						<td><form:errors path="idDepartureSchedule" cssClass="text-danger" /></td>
 						<td></td>
 					</tr>
 				</c:forEach>
@@ -46,18 +48,18 @@
 		<c:if test="${not reservation.oneWayTrip}">
 			<div>
 				<h4>
-					<spring:message code="showroutes.choose.return" />
+					<spring:message code="showschedules.choose.return" />
 					<c:out value="${reservation.cityTo} - ${reservation.cityFrom}"></c:out>
 					<c:out value="${reservation.returnDate}"></c:out>
 				</h4>
 				<br />
 				<table>
 					<tr>
-						<td><b><spring:message code="showroutes.departure" /></b></td>
-						<td><b><spring:message code="showroutes.arrival" /></b></td>
-						<td><b><spring:message code="showroutes.traveltime" /></b></td>
-						<td><b><spring:message code="showroutes.price" /></b></td>
-						<td><b><spring:message code="showroutes.select" /></b></td>
+						<td><b><spring:message code="showschedules.departure" /></b></td>
+						<td><b><spring:message code="showschedules.arrival" /></b></td>
+						<td><b><spring:message code="showschedules.traveltime" /></b></td>
+						<td><b><spring:message code="showschedules.price" /></b></td>
+						<td><b><spring:message code="showschedules.select" /></b></td>
 					</tr>
 					<c:forEach items="${schedulesReturn}" var="schedule">
 						<tr>
@@ -67,13 +69,17 @@
 									value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
 							<td><c:out value="${schedule.price}"></c:out></td>
 							<td><form:radiobutton path="idReturnSchedule" value="${schedule.id}" /></td>
+							<td><form:errors path="idReturnSchedule" cssClass="text-danger" /></td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
-		</c:if>
-	<input name="submit" type="submit" value="<spring:message code="showroutes.goon"/>" />
+		</c:if>	
+		<form:errors path="*" cssClass="text-danger" />
+	<input name="submit" type="submit" value="<spring:message code="showschedules.goon"/>" />
+	<form:errors path="*" cssClass="text-danger" />
 	</form:form>
+	<form:errors path="*" cssClass="text-danger" />
 
 </body>
 </html>
