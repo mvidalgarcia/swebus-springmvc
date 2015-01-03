@@ -105,25 +105,25 @@ public class Reservation {
 	public void setNumberPets(Integer numberPets) {
 		this.numberPets = numberPets;
 	}
-	public boolean hasExtraBaggage() {
+	public boolean isExtraBaggage() {
 		return extraBaggage;
 	}
 	public void setExtraBaggage(boolean extraBaggage) {
 		this.extraBaggage = extraBaggage;
 	}
-	public boolean hasPriorityBoarding() {
+	public boolean isPriorityBoarding() {
 		return priorityBoarding;
 	}
 	public void setPriorityBoarding(boolean priorityBoarding) {
 		this.priorityBoarding = priorityBoarding;
 	}
-	public boolean hasBike() {
+	public boolean isBike() {
 		return bike;
 	}
 	public void setBike(boolean bike) {
 		this.bike = bike;
 	}
-	public boolean hasInsurance() {
+	public boolean isInsurance() {
 		return insurance;
 	}
 	public void setInsurance(boolean insurance) {
