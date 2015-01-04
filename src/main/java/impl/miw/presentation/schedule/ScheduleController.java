@@ -61,13 +61,18 @@ public class ScheduleController {
 		model.addAttribute("sessionUser", (String) session.getAttribute("sessionUser"));
 		System.out.println("[ScheduleController - SubmitSchedule] ID scheduleDepartureSelected: " + schedulesSelected.getIdDepartureSchedule());
 		System.out.println("[ScheduleController - SubmitSchedule] ID scheduleReturnSelected: " + schedulesSelected.getIdReturnSchedule());
-		// Obtener de BD los horarios correspondientes a partir de los ID seleccionados
+		// Obtener de BD los horarios correspondientes a partir de los ID seleccionados y rellenar
+		// datos de la reserva
 		Time scheduleDeparture = timeManager.getTimeById(schedulesSelected.getIdDepartureSchedule());
-		Time scheduleReturn = timeManager.getTimeById(schedulesSelected.getIdReturnSchedule());
-		// Rellenar datos de la reserva
 		reservation.setDepartureTime(scheduleDeparture);
-		reservation.setReturnTime(scheduleReturn);
-		reservation.setPrice(scheduleDeparture.getPrice() + scheduleReturn.getPrice());
+		if (!reservation.isOneWayTrip()){
+			Time scheduleReturn = timeManager.getTimeById(schedulesSelected.getIdReturnSchedule());
+			reservation.setReturnTime(scheduleReturn);
+			reservation.setPrice(scheduleDeparture.getPrice() + scheduleReturn.getPrice());
+		}
+		else {
+			reservation.setPrice(scheduleDeparture.getPrice());
+		}
 		System.out.println("[ScheduleController- submitSchedule] Estado de la reserva: " + reservation);
 		return "redirect:showAdditionals";
 	}
