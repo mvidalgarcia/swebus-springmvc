@@ -19,7 +19,7 @@ public class AdditionalsController {
 
 	@RequestMapping(value = "/showAdditionals", method = RequestMethod.GET)
 	public String showAdditionalOptions(Model model, @ModelAttribute("reservation") Reservation reservation, BindingResult result) {
-		System.out.println("[AdditionalsController - showAdditionalOptions] Entrando en Additional Options");
+		System.out.println("[AdditionalsController - Entrando en Additional Options");
 		return "showAdditionals";
 	}
 	
@@ -31,7 +31,7 @@ public class AdditionalsController {
 		if (sessionUser == null)
 			return "redirect:signIn";
 		else
-			return "redirect:payment";
+			return "payment";
 
 	}
 

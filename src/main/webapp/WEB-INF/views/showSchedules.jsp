@@ -14,7 +14,6 @@
 	<jsp:include page="header.jsp" />
 
 	<form:form method="POST" commandName="schedulesSelected">
-	<form:errors path="idDepartureSchedule" />
 		<div>
 			<h4>
 				<spring:message code="showschedules.choose.departure" />
@@ -38,7 +37,6 @@
 								value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
 						<td><c:out value="${schedule.price}"></c:out></td>
 						<td><form:radiobutton path="idDepartureSchedule" value="${schedule.id}" /></td>
-						<td><form:errors path="idDepartureSchedule" cssClass="text-danger" /></td>
 						<td></td>
 					</tr>
 				</c:forEach>
@@ -69,17 +67,13 @@
 									value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
 							<td><c:out value="${schedule.price}"></c:out></td>
 							<td><form:radiobutton path="idReturnSchedule" value="${schedule.id}" /></td>
-							<td><form:errors path="idReturnSchedule" cssClass="text-danger" /></td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
 		</c:if>	
-		<form:errors path="*" cssClass="text-danger" />
 	<input name="submit" type="submit" value="<spring:message code="showschedules.goon"/>" />
-	<form:errors path="*" cssClass="text-danger" />
 	</form:form>
-	<form:errors path="*" cssClass="text-danger" />
 
 </body>
 </html>

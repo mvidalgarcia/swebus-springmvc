@@ -14,13 +14,13 @@ public class User {
 	@NotEmpty
 	@Email
 	private String email;
-	@NotNull(message="ejejje")
+	@NotNull
 	private int phone;
 	@NotEmpty
 	private String gender;
 	@NotEmpty
 	private String address;
-	@NotNull(message="Tehe zipcode mandatory")
+	@NotNull
 	private int zipCode;
 	@NotEmpty
 	private String city;
