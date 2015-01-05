@@ -2,6 +2,7 @@ package impl.miw.presentation.login;
 
 import impl.miw.business.usermanager.UserManager;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -26,8 +27,12 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
-	public String signInGet(Model model, @ModelAttribute("user") User user, BindingResult result) {
+	public String signInGet(Model model, @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request) {
 		System.out.println("Entrando en Sign in");
+		/* Guardamos la página de la que se proviene en sessión para volver a ella 
+		 * una vez se complete la identificación */
+		String referrer = request.getHeader("Referer");
+	    request.getSession().setAttribute("url_prior_login", referrer);
 		return "signin";
 	}
 	
@@ -47,7 +52,8 @@ public class LoginController {
 		// Crear objeto de sesión del usuario para mostrarlo en la cabecera
 		session.setAttribute("sessionUser", user.getEmail());
 		System.out.println("[LoginController] Usuario identificado en el sistema");
-		return "redirect:";
+		String referer = (String) session.getAttribute("url_prior_login");
+	    return "redirect:"+ referer;
 	}
 	
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
