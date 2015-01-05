@@ -28,4 +28,10 @@ public class UserManager implements UserManagerService {
 		// TODO Auto-generated method stub
 		return this.userDataService.newUser(user);
 	}
+
+	@Override
+	public Integer findIdUserByEmail(String email) throws Exception {
+		// TODO Auto-generated method stub
+		return this.userDataService.findIdUserByEmail(email);
+	}
 }

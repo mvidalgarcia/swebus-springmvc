@@ -9,7 +9,7 @@ public class Payment {
 	private Integer id;
 	private String type;
 	@NotNull
-	private Integer cardNumber;
+	private Long cardNumber;
 	private String userName;
 	private Integer pinCode;
 	@NotEmpty
@@ -28,10 +28,10 @@ public class Payment {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Integer getCardNumber() {
+	public Long getCardNumber() {
 		return cardNumber;
 	}
-	public void setCardNumber(Integer cardNumber) {
+	public void setCardNumber(Long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 	public String getUserName() {

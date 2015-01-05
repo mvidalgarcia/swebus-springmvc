@@ -24,6 +24,11 @@
 	
 	<bean id="timeManager" class="impl.miw.business.timemanager.TimeManager" />
 	<bean id="timeDataService" class="impl.miw.persistence.time.TimeDAO" />
+	
+	<bean id="paymentDataService" class="impl.miw.persistence.payment.PaymentDAO" />
+	
+	<bean id="reservationManager" class="impl.miw.business.reservationmanager.ReservationManager" />
+	<bean id="reservationDataService" class="impl.miw.persistence.reservation.ReservationDAO" />
 
 
 </beans>

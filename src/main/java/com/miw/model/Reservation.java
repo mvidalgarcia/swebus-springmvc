@@ -27,6 +27,7 @@ public class Reservation {
 	private boolean bike;
 	private boolean insurance;
 	private Integer idPayment;
+	private Integer idUser;
 	
 	public Integer getCode() {
 		return code;
@@ -148,6 +149,12 @@ public class Reservation {
 	public void setIdPayment(Integer idPayment) {
 		this.idPayment = idPayment;
 	}
+	public Integer getIdUser() {
+		return idUser;
+	}
+	public void setIdUser(Integer idUser) {
+		this.idUser = idUser;
+	}
 	@Override
 	public String toString() {
 		return "Reservation [code=" + code + ", cityFrom=" + cityFrom
@@ -161,7 +168,8 @@ public class Reservation {
 				+ numberDisables + ", numberPets=" + numberPets
 				+ ", extraBaggage=" + extraBaggage + ", priorityBoarding="
 				+ priorityBoarding + ", bike=" + bike + ", insurance="
-				+ insurance + ", idPayment=" + idPayment + "]";
+				+ insurance + ", idPayment=" + idPayment + ", idUser=" + idUser
+				+ "]";
 	}
 	
 }

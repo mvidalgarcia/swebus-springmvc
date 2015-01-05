@@ -30,6 +30,11 @@ public class Test {
 		monedero.setIdCard("019101920X");
 		monedero.setPassword("monederoJC");
 		System.out.println("Se ha registrado? " + udao.newUser(monedero));
+		
+		/* OBTENER ID USUARIO POR EMAIL */
+		System.out.println("Email: marco@email.es, ID:"+udao.findIdUserByEmail("marco@email.es"));
+		System.out.println("Email: pablo@podemos.es, ID:"+udao.findIdUserByEmail("pablo@podemos.es"));
+		
 	}
 
 }
