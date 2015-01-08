@@ -38,6 +38,8 @@ public class WelcomeController {
 		System.out.println("Sesión: " + sessionUser);
 		// Pasar ciudades al modelo
 		getCities(model);
+		// Aumentar el contador de visitas y pasarlo al modelo
+		model.addAttribute("counter",Counter.getInstance().inc());
 		return "index";
 	}
 	

@@ -54,6 +54,7 @@
 		<br/>
 		<input name="submit" type="submit" value="<spring:message code="index.search"/>" />
 	</form:form>
+	<spring:message code="index.hitcounter"/>${counter}
 	<script src="<c:url value="/resources/swebus/js/index.js" />"></script>
 
 </body>

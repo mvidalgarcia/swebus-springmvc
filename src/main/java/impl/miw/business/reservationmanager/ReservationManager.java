@@ -27,6 +27,7 @@ public class ReservationManager implements ReservationManagerService {
 		System.out.println("[ReservationManager] Pago guardado en BD");
 		//Insertar el id del pago en la reserva
 		reservation.setIdPayment(idPayment);
+		System.out.println("[ReservationManager] Nos disponemos a guardar la reserva en BD");
 		// Guardar la reserva en BD
 		return reservationDataService.newReservation(reservation);
 	}
