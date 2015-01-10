@@ -17,4 +17,8 @@ public class Counter {
 		return ++instance.counter;
 	}
 
+	public Integer getCounter() {
+		return counter;
+	}
+
 }

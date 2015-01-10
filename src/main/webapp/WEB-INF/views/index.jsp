@@ -15,6 +15,8 @@
 	<br/>
 	<a href="signUp"><spring:message code="signup"/></a>
 	<br/>
+	<a href="cancelReservation"><spring:message code="cancel.reservation"/></a>
+	<br/>
 	<h3><spring:message code="index.planyourtrip"/></h3>
 	<form:form commandName="reservation">
 		<spring:message code="index.from"/>

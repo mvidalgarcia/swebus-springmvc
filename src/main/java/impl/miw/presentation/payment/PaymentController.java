@@ -45,8 +45,11 @@ public class PaymentController {
 			System.out.println("[PaymentController - submitPaymentForm] Estado de la reserva: " + reservation);
 			System.out.println("[PaymentController - submitPaymentForm] Datos del pago: " + payment);
 			// Guardar la reserva y el pago en la BD.
-			reservationManager.saveFullReservation(reservation, payment);
-			return "redirect:";
+			Integer codeReservation = reservationManager.saveFullReservation(reservation, payment);
+			if (codeReservation != null)
+				return "redirect:reservationDetails/"+codeReservation;
+			else
+				return "payment";
 		}
 	}
 

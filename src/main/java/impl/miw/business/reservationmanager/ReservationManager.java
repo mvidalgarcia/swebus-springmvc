@@ -19,7 +19,7 @@ public class ReservationManager implements ReservationManagerService {
 	private PaymentDataService paymentDataService;
 
 	@Override
-	public boolean saveFullReservation(Reservation reservation, Payment payment) throws Exception {
+	public Integer saveFullReservation(Reservation reservation, Payment payment) throws Exception {
 		Integer idPayment=null;
 		// Guardar el pago en BD y obtener el ID.
 		System.out.println("[ReservationManager] Nos disponemos a guardar el pago en BD");
@@ -30,6 +30,11 @@ public class ReservationManager implements ReservationManagerService {
 		System.out.println("[ReservationManager] Nos disponemos a guardar la reserva en BD");
 		// Guardar la reserva en BD
 		return reservationDataService.newReservation(reservation);
+	}
+
+	@Override
+	public Reservation getReservation(Integer code) throws Exception {
+		return reservationDataService.getReservation(code);
 	}
 
 }

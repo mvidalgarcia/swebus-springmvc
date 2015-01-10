@@ -74,6 +74,8 @@
 		</c:if>	
 	<input name="submit" type="submit" value="<spring:message code="showschedules.goon"/>" />
 	</form:form>
+	<br>
+	<button onclick="window.print()"><spring:message code="showschedules.print"/></button>
 
 </body>
 </html>

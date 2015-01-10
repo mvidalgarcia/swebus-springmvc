@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.Vector;
 
 import com.miw.model.City;
@@ -90,6 +91,62 @@ public class CityDAO implements CityDataService {
 		}
 		return resultado;
 	}
+
+	@SuppressWarnings({ "resource"})
+	@Override
+	public HashMap<String, String> getCitiesByIdRoute(Integer idRoute) throws Exception {
+		HashMap<String, String> resultado = new HashMap<String, String>() ;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = null;
+
+		try {
+			String SQL_DRV = "org.hsqldb.jdbcDriver";
+			String SQL_URL = "jdbc:hsqldb:hsql://localhost/swebus";
+
+			// Obtenemos la conexión a la base de datos.
+			Class.forName(SQL_DRV);
+			con = DriverManager.getConnection(SQL_URL, "mvidalgarcia", "swebus");
+
+			ps = con.prepareStatement("select id_from, id_to from route where id=?");
+			ps.setInt(1, idRoute);
+			rs = ps.executeQuery();
+			Integer idCityFrom = null,idCityTo = null;
+			while (rs.next()) {
+				idCityFrom = rs.getInt("id_from");
+				idCityTo = rs.getInt("id_to");
+			}			
+			// Obtener ciudad de origen
+			ps = con.prepareStatement("select name from city where id=?");
+			ps.setInt(1, idCityFrom);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				//System.out.println("[CityDAO] city_from:"+rs.getString("name"));
+				resultado.put("from", rs.getString("name"));
+			}
+			
+			// Obtener ciudad de destino
+			ps = con.prepareStatement("select name from city where id=?");
+			ps.setInt(1, idCityTo);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				resultado.put("to", rs.getString("name"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw (e);
+		} finally {
+			try {
+				ps.close();
+				con.close();
+			} catch (Exception e) {
+			}
+		}
+		return resultado;
+	}
+	
+	
 
 
 }

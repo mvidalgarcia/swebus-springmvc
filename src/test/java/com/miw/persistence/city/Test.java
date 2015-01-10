@@ -5,6 +5,8 @@ import java.util.Vector;
 import impl.miw.persistence.city.CityDAO;
 
 
+
+
 import com.miw.model.City;
 
 public class Test {
@@ -25,6 +27,12 @@ public class Test {
 		System.out.println(cityDao.getIdByCityName("Stockholm"));
 		System.out.println(cityDao.getIdByCityName("Madrid"));
 		System.out.println(cityDao.getIdByCityName("Malmo"));
+		
+		/* OBTENER CIUDADES DE ORIGEN Y DESTINO POR EL ID ROUTE */
+		System.out.println("----");
+		System.out.println(cityDao.getCitiesByIdRoute(0).get("from") + " - " + cityDao.getCitiesByIdRoute(0).get("to")); //Stockholm - Linkoping
+		System.out.println(cityDao.getCitiesByIdRoute(4).get("from") + " - " + cityDao.getCitiesByIdRoute(4).get("to")); //Malmo - Stockholm
+		System.out.println(cityDao.getCitiesByIdRoute(2).get("from") + " - " + cityDao.getCitiesByIdRoute(2).get("to")); //Linkoping - Stockholm
 	}
 
 }

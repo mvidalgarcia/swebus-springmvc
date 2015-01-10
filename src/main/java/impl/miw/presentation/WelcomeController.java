@@ -56,6 +56,8 @@ public class WelcomeController {
 		else {
 			// Pasar ciudades al modelo
 			getCities(model);
+			// Pasar contador al modelo (sin incrementarlo)
+			model.addAttribute("counter",Counter.getInstance().getCounter());
 			return "index";
 		}
 	}
