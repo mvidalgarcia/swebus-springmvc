@@ -37,4 +37,9 @@ public class ReservationManager implements ReservationManagerService {
 		return reservationDataService.getReservation(code);
 	}
 
+	@Override
+	public boolean deleteReservationByCode(Integer code, Integer idUser) throws Exception {
+		return reservationDataService.deleteReservationByCode(code, idUser);
+	}
+
 }

@@ -114,6 +114,7 @@ public class ReservationDAO implements ReservationDataService {
 			ps = con.prepareStatement("select * from reservation where code=?");
 			ps.setInt(1, code);
 			rs = ps.executeQuery();
+			boolean empty = true;
 			while (rs.next()) {
 				// Guardamos el horario obtenido
 				resultado.setCode(rs.getInt("code"));
@@ -136,7 +137,11 @@ public class ReservationDAO implements ReservationDataService {
 				resultado.setPriorityBoarding(rs.getBoolean("priority_boarding"));
 				resultado.setBike(rs.getBoolean("bike"));
 				resultado.setInsurance(rs.getBoolean("insurance"));
+				empty = false;
 			}
+			// Si no retorna nada de DB devolvemos null
+			if (empty)
+				return null;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -149,5 +154,62 @@ public class ReservationDAO implements ReservationDataService {
 			}
 		}
 		return resultado;
+	}
+
+	@SuppressWarnings("resource")
+	@Override
+	public boolean deleteReservationByCode(Integer code, Integer idUser) throws Exception {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = null;
+		Integer paymentId = null;
+		Integer idUserFetched = null;
+		
+		try {
+			String SQL_DRV = "org.hsqldb.jdbcDriver";
+			String SQL_URL = "jdbc:hsqldb:hsql://localhost/swebus";
+
+			// Obtenemos la conexión a la base de datos.
+			Class.forName(SQL_DRV);
+			con = DriverManager.getConnection(SQL_URL, "mvidalgarcia", "swebus");
+			
+			// Obtener la el id del pago para eliminarlo posteriormente
+			ps = con.prepareStatement("select id_payment, id_user from reservation where code=?");
+			ps.setInt(1, code);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				// Guardamos el id del pago
+				paymentId= rs.getInt("id_payment");
+				idUserFetched = rs.getInt("id_user");
+			}
+			if (paymentId == null){
+				// No existe reserva con este id
+				System.out.println("[ReservationDAO] No existe reserva con código="+code);
+				return false;
+			}
+			if (idUser != idUserFetched){
+				// Si el usuario que intenta eliminar la reserva es distinto del propietario
+				// de la reserva correspondiente al código introducido, retornar falso.
+				System.out.println("[ReservationDAO] El usuario id="+idUser+" no es propietario de la reserva. (Es de id_user="+idUserFetched+")");
+				return false;
+			}
+			System.out.println("[ReservationDAO] Proceder a borrar pago id="+paymentId);
+			// Eliminar el pago encontrado. Gracias a la propiedad ON DELETE CASCADE
+			// se eliminará la reserva.
+			ps = con.prepareStatement("delete from payment where id=?");
+			ps.setInt(1, paymentId);
+			ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw (e);
+		} finally {
+			try {
+				ps.close();
+				con.close();
+			} catch (Exception e) {
+			}
+		}
+		return true;
 	}
 }

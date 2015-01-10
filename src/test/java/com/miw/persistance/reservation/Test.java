@@ -11,7 +11,11 @@ public class Test {
 		System.out.println(resDao.getReservation(0));
 		System.out.println(resDao.getReservation(1));
 		System.out.println(resDao.getReservation(2));
-
+		
+		/* ELIMINAR UNA RESERVA POR EL CÓDIGO */
+		System.out.println("------");
+		//System.out.println(resDao.deleteReservationByCode(34)); //False
+		//System.out.println(resDao.deleteReservationByCode(2)); //True
 	}
 
 }

@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<jsp:include page="header.jsp"/>
-		<h3><spring:message code="reservation.reservationdata"/></h3>
+		<h3><spring:message code="reservation.reservationdata"/> <small><spring:message code="reservation.code"/>${reservation.code}</small></h3>
 		<spring:message code="reservation.departuretrip"/> ${reservation.departureDate}
 		<div>${reservation.cityFrom} - ${reservation.cityTo}</div>
 		<spring:message code="reservation.departuretime"/>${reservation.departureTime.hourDeparture}
