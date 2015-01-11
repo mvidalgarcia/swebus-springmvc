@@ -1,0 +1,23 @@
+/* Header font */
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+/* Text font */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+.navbar {
+	padding: 2em 0em;
+}
+
+.navbar-brand {
+	font-size: 2em;
+	font-family: 'PT Sans', sans-serif;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.navbar-text.welcome-text {
+	 color: #c7c7c7;
+}

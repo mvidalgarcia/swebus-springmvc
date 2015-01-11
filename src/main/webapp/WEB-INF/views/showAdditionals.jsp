@@ -12,13 +12,15 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<h3><spring:message code="showadditionals.title" /></h3>
-	<form:form commandName="reservation">
-		<p><spring:message code="showadditionals.extrabaggage" /> <form:checkbox path="extraBaggage"/>
-		<p><spring:message code="showadditionals.priorityboarding" /> <form:checkbox path="priorityBoarding"/></p>
-		<p><spring:message code="showadditionals.bike" /> <form:checkbox path="bike"/></p>
-		<p><spring:message code="showadditionals.insurance" /> <form:checkbox path="insurance"/></p>
-		<input name="submit" type="submit" value="<spring:message code="showadditionals.topayment"/>" />
-	</form:form>
+	<div class="container">
+		<h3><spring:message code="showadditionals.title" /></h3>
+		<form:form commandName="reservation">
+			<p><spring:message code="showadditionals.extrabaggage" /> <form:checkbox path="extraBaggage"/>
+			<p><spring:message code="showadditionals.priorityboarding" /> <form:checkbox path="priorityBoarding"/></p>
+			<p><spring:message code="showadditionals.bike" /> <form:checkbox path="bike"/></p>
+			<p><spring:message code="showadditionals.insurance" /> <form:checkbox path="insurance"/></p>
+			<input name="submit" type="submit" value="<spring:message code="showadditionals.topayment"/>" />
+		</form:form>
+	</div>
 </body>
 </html>

@@ -6,28 +6,28 @@
 	<head>
 	<title><spring:message code="title.signin"/></title>
 	</head>
-
-
-<body>
-	<jsp:include page="header.jsp"/>
-	<h3><spring:message code="signin.title"/></h3>
-	<p><spring:message code="signin.introduce"/></p>
-
-	<form:form commandName="user">
-		<form:errors path="" cssClass="text-danger" />
-		<br />
-		<spring:message code="signin.email"/>
-		<form:input path="email" />
-		<form:errors path="email" cssClass="text-danger"/>
+	<body>
+		<jsp:include page="header.jsp"/>
+		<div class="container">
+			<h3><spring:message code="signin.title"/></h3>
+			<p><spring:message code="signin.introduce"/></p>
 		
-		<br />
-		<spring:message code="signin.password"/>
-		<form:password path="password" />
-		<form:errors path="password" cssClass="text-danger" />
-		
-		<br />
-		<input name="submit" type="submit" value="<spring:message code="signin.submit"/>" />
-		<input name="reset" type="reset" value="<spring:message code="signin.reset"/>"/>
-	</form:form>
-</body>
+			<form:form commandName="user">
+				<form:errors path="" cssClass="text-danger" />
+				<br />
+				<spring:message code="signin.email"/>
+				<form:input path="email" />
+				<form:errors path="email" cssClass="text-danger"/>
+				
+				<br />
+				<spring:message code="signin.password"/>
+				<form:password path="password" />
+				<form:errors path="password" cssClass="text-danger" />
+				
+				<br />
+				<input name="submit" type="submit" value="<spring:message code="signin.submit"/>" />
+				<input name="reset" type="reset" value="<spring:message code="signin.reset"/>"/>
+			</form:form>
+		</div>
+	</body>
 </html>

@@ -10,16 +10,18 @@
 
 <body>
 	<jsp:include page="header.jsp"/>
-	<h3><spring:message code="cancelation.title"/></h3>
-	<p><spring:message code="cancelation.introduce"/></p>
-
-	<form:form commandName="cancelation">
-		<form:errors path="" cssClass="text-danger" /><br>
-		<spring:message code="cancelation.code"/>
-		<form:input path="code" />
-		<form:errors path="code" cssClass="text-danger"/>
-		<br />
-		<input name="submit" type="submit" value="<spring:message code="cancelation.submit"/>" />
-	</form:form>
+	<div class="container">
+		<h3><spring:message code="cancelation.title"/></h3>
+		<p><spring:message code="cancelation.introduce"/></p>
+	
+		<form:form commandName="cancelation">
+			<form:errors path="" cssClass="text-danger" /><br>
+			<spring:message code="cancelation.code"/>
+			<form:input path="code" />
+			<form:errors path="code" cssClass="text-danger"/>
+			<br />
+			<input name="submit" type="submit" value="<spring:message code="cancelation.submit"/>" />
+		</form:form>
+	</div>
 </body>
 </html>

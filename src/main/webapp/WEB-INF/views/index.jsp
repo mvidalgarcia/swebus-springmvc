@@ -11,8 +11,8 @@
 <body>
 	<jsp:include page="header.jsp"/>
 	<!-- Destinos más populares e imágenes -->
-  	<div class="row">
-	  	<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2"> 
+  	<div class="container">
+	  	<div class="col-md-12 col-sm-12"> 
 	  		<h3><spring:message code="index.populardestinations"/></h3>
 	  		<c:forEach items="${cities}" var="city">
 				<c:if test="${not empty city.uri}">
@@ -28,15 +28,9 @@
 	  		</c:forEach>
 	  	</div>
 	</div>
-	<!--/ Destinos más populares e imágenes -->
-	<div class="row">
-	  	<div class="col-md-8 col-md-offset-2">
-			<br/> <a href="signIn"><spring:message code="signin"/></a>
-			<br/>
-			<a href="signUp"><spring:message code="signup"/></a>
-			<br/>
-			<a href="cancelation"><spring:message code="cancel.reservation"/></a>
-			<br/>
+	<!-- /Destinos más populares e imágenes -->
+	<div class="container">
+	  	<div class="col-md-12">
 			<h3><spring:message code="index.planyourtrip"/></h3>
 			<form:form commandName="reservation">
 				<spring:message code="index.from"/>

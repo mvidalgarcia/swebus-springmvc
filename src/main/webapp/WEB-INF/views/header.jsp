@@ -4,11 +4,29 @@
 <script src="<c:url value="/resources/swebus/js/jquery-1.11.2.min.js" />"></script>
 <link href="<c:url value="/resources/swebus/css/bootstrap.min.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/swebus/js/bootstrap.min.js" />"></script>
-
-<center>
-	<h1><a href="/Swebus"><spring:message code="title"/></a></h1>
-	<br>
-	<h2><spring:message code="welcome"/></h2>
-	<p><c:out value="${sessionUser}"></c:out></p>
-</center>
-	<br/>
+<link href="<c:url value="/resources/swebus/css/mystyle.css" />" rel="stylesheet">
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/Swebus"><spring:message code="header.title"/></a>
+          <p class="navbar-text welcome-text"><spring:message code="header.welcome"/></p>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="signIn"><spring:message code="signin"/></a></li>
+            <li><a href="signUp"><spring:message code="signup"/></a></li>
+            <li><a href="cancelation"><spring:message code="cancel.reservation"/></a></li>
+            <c:if test="${not empty sessionUser}">
+           	 <li><p class="navbar-text"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+           	  <strong><c:out value="${sessionUser}"></c:out></strong><p></li>
+            </c:if>
+          </ul>
+      </div>
+    </nav>
+    <br><br><br><br><br><br>

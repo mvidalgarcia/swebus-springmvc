@@ -8,70 +8,70 @@
 	</head>
 	<body>
 		<jsp:include page="header.jsp"/>
-		<h3><spring:message code="reservation.reservationdata"/> <small><spring:message code="reservation.code"/>${reservation.code}</small></h3>
-		<spring:message code="reservation.departuretrip"/> ${reservation.departureDate}
-		<div>${reservation.cityFrom} - ${reservation.cityTo}</div>
-		<spring:message code="reservation.departuretime"/>${reservation.departureTime.hourDeparture}
-		<spring:message code="reservation.returntime"/>${reservation.departureTime.hourArrival}
-		<br>
-		<c:if test="${not reservation.oneWayTrip}">
+		<div class="container">
+			<h3><spring:message code="reservation.reservationdata"/> <small><spring:message code="reservation.code"/>${reservation.code}</small></h3>
+			<spring:message code="reservation.departuretrip"/> ${reservation.departureDate}
+			<div>${reservation.cityFrom} - ${reservation.cityTo}</div>
+			<spring:message code="reservation.departuretime"/>${reservation.departureTime.hourDeparture}
+			<spring:message code="reservation.returntime"/>${reservation.departureTime.hourArrival}
 			<br>
-			<spring:message code="reservation.returntrip"/> ${reservation.returnDate}
-			<div>${reservation.cityTo} - ${reservation.cityFrom}</div>
-			<spring:message code="reservation.departuretime"/>${reservation.returnTime.hourDeparture}
-			<spring:message code="reservation.returntime"/>${reservation.returnTime.hourArrival}
+			<c:if test="${not reservation.oneWayTrip}">
+				<br>
+				<spring:message code="reservation.returntrip"/> ${reservation.returnDate}
+				<div>${reservation.cityTo} - ${reservation.cityFrom}</div>
+				<spring:message code="reservation.departuretime"/>${reservation.returnTime.hourDeparture}
+				<spring:message code="reservation.returntime"/>${reservation.returnTime.hourArrival}
+				<br>
+			</c:if>
+			<!-- Passengers  -->
+			<c:if test="${reservation.numberAdults > 0}">
+				<br>
+				${reservation.numberAdults} <spring:message code="reservation.adults"/>
+			</c:if>
+			<c:if test="${reservation.numberYouths > 0}">
+				<br>
+				${reservation.numberYouths} <spring:message code="reservation.youths"/>
+			</c:if>
+			<c:if test="${reservation.numberStudents > 0}">
+				<br>
+				${reservation.numberStudents} <spring:message code="reservation.students"/>
+			</c:if>
+			<c:if test="${reservation.numberSeniors > 0}">
+				<br>
+				${reservation.numberSeniors} <spring:message code="reservation.seniors"/>
+			</c:if>
+			<c:if test="${reservation.numberDisables > 0}">
+				<br>
+				${reservation.numberDisables} <spring:message code="reservation.disables"/>
+			</c:if>
+			<c:if test="${reservation.numberPets > 0}">
+				<br>
+				${reservation.numberPets} <spring:message code="reservation.pets"/>
+			</c:if>
+			<!-- Additionals  -->
+			<c:if test="${reservation.extraBaggage}">
+				<br>
+				<spring:message code="reservation.extrabaggage"/>
+			</c:if>
+			<c:if test="${reservation.priorityBoarding}">
+				<br>
+				<spring:message code="reservation.priorityboarding"/>
+			</c:if>
+			<c:if test="${reservation.bike}">
+				<br>
+				<spring:message code="reservation.bike"/>
+			</c:if>
+			<c:if test="${reservation.insurance}">
+				<br>
+				<spring:message code="reservation.insurance"/>
+			</c:if>
+			
+			
+			<br><br>
+			<spring:message code="reservation.total"/>${reservation.price}&#8364;
 			<br>
-		</c:if>
-		<!-- Passengers  -->
-		<c:if test="${reservation.numberAdults > 0}">
-			<br>
-			${reservation.numberAdults} <spring:message code="reservation.adults"/>
-		</c:if>
-		<c:if test="${reservation.numberYouths > 0}">
-			<br>
-			${reservation.numberYouths} <spring:message code="reservation.youths"/>
-		</c:if>
-		<c:if test="${reservation.numberStudents > 0}">
-			<br>
-			${reservation.numberStudents} <spring:message code="reservation.students"/>
-		</c:if>
-		<c:if test="${reservation.numberSeniors > 0}">
-			<br>
-			${reservation.numberSeniors} <spring:message code="reservation.seniors"/>
-		</c:if>
-		<c:if test="${reservation.numberDisables > 0}">
-			<br>
-			${reservation.numberDisables} <spring:message code="reservation.disables"/>
-		</c:if>
-		<c:if test="${reservation.numberPets > 0}">
-			<br>
-			${reservation.numberPets} <spring:message code="reservation.pets"/>
-		</c:if>
-		<!-- Additionals  -->
-		<c:if test="${reservation.extraBaggage}">
-			<br>
-			<spring:message code="reservation.extrabaggage"/>
-		</c:if>
-		<c:if test="${reservation.priorityBoarding}">
-			<br>
-			<spring:message code="reservation.priorityboarding"/>
-		</c:if>
-		<c:if test="${reservation.bike}">
-			<br>
-			<spring:message code="reservation.bike"/>
-		</c:if>
-		<c:if test="${reservation.insurance}">
-			<br>
-			<spring:message code="reservation.insurance"/>
-		</c:if>
-		
-		
-		<br><br>
-		<spring:message code="reservation.total"/>${reservation.price}&#8364;
-		<br>
-		<a href="/Swebus"><spring:message code="reservation.back"/></a>
-		<button onclick="window.print()"><spring:message code="reservation.print"/></button>
-	
-		
+			<a href="/Swebus"><spring:message code="reservation.back"/></a>
+			<button onclick="window.print()"><spring:message code="reservation.print"/></button>
+		</div>
 	</body>
 </html>

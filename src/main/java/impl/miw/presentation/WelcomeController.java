@@ -67,6 +67,10 @@ public class WelcomeController {
 			getCities(model);
 			// Pasar contador al modelo (sin incrementarlo)
 			model.addAttribute("counter",Counter.getInstance().getCounter());
+			// Pasar historial de reservas al modelo
+			String sessionUser = (String) session.getAttribute("sessionUser");
+			if (sessionUser != null)
+				model.addAttribute("reservations", reservationManager.getReservationsByIdUser(userManager.findIdUserByEmail(sessionUser)));
 			return "index";
 		}
 	}

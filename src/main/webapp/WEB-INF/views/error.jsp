@@ -7,8 +7,9 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-	<br/>
-	<b><spring:message code="problem"/></b>
-
+		<div class="container">
+		<br/>
+		<b><spring:message code="problem"/></b>
+	</div>
 </body>
 </html>
