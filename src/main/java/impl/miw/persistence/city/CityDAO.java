@@ -40,7 +40,7 @@ public class CityDAO implements CityDataService {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				// Completamos los datos de la ciudad en la entidad
-				City city = new City(rs.getInt("id"), rs.getString("name"));
+				City city = new City(rs.getInt("id"), rs.getString("name"), rs.getString("uri"));
 				resultado.add(city);
 			}
 
