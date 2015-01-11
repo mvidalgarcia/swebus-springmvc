@@ -16,7 +16,7 @@
 	  		<h3><spring:message code="index.populardestinations"/></h3>
 	  		<c:forEach items="${cities}" var="city">
 				<c:if test="${not empty city.uri}">
-					<div class="col-sm-3 col-md-3">
+					<div class="col-sm-4 col-md-4">
 						<div class="thumbnail">
 							<img src="<c:url value="${city.uri}"/>" alt="${city.name} photo">
 							<div class="caption">
