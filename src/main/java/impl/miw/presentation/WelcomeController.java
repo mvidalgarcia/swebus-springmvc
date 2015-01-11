@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import impl.miw.business.citymanager.CityManager;
+import impl.miw.business.reservationmanager.ReservationManager;
+import impl.miw.business.usermanager.UserManager;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -25,6 +27,10 @@ public class WelcomeController {
 	
 	@Autowired
 	private CityManager cityManager;
+	@Autowired
+	private ReservationManager reservationManager;
+	@Autowired
+	private UserManager userManager;
 	
 	/*
 	 * Setting / as request mapping url we are setting the default controller
@@ -40,6 +46,9 @@ public class WelcomeController {
 		getCities(model);
 		// Aumentar el contador de visitas y pasarlo al modelo
 		model.addAttribute("counter",Counter.getInstance().inc());
+		// Pasar historial de reservas al modelo
+		if (sessionUser != null)
+			model.addAttribute("reservations", reservationManager.getReservationsByIdUser(userManager.findIdUserByEmail(sessionUser)));
 		return "index";
 	}
 	

@@ -3,6 +3,8 @@
 package impl.miw.business.reservationmanager;
 
 
+import java.util.Vector;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.miw.business.ReservationManagerService;
@@ -40,6 +42,11 @@ public class ReservationManager implements ReservationManagerService {
 	@Override
 	public boolean deleteReservationByCode(Integer code, Integer idUser) throws Exception {
 		return reservationDataService.deleteReservationByCode(code, idUser);
+	}
+
+	@Override
+	public Vector<Reservation> getReservationsByIdUser(Integer idUser) throws Exception {
+		return reservationDataService.getReservationsByIdUser(idUser);
 	}
 
 }

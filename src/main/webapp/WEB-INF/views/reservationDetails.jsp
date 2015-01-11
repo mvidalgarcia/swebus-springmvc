@@ -69,6 +69,7 @@
 		<br><br>
 		<spring:message code="reservation.total"/>${reservation.price}&#8364;
 		<br>
+		<a href="/Swebus"><spring:message code="reservation.back"/></a>
 		<button onclick="window.print()"><spring:message code="reservation.print"/></button>
 	
 		

@@ -56,6 +56,16 @@
 		<br/>
 		<input name="submit" type="submit" value="<spring:message code="index.search"/>" />
 	</form:form>
+	<!-- Historial de viajes de usuario -->
+	<c:if test="${not empty reservations}">
+		<hr>
+		<h4><spring:message code="index.record"/></h4>
+		<c:forEach items="${reservations}" var="reservation">
+			<div>${reservation.cityFrom} - ${reservation.cityTo} <small>${reservation.departureDate}</small></div>
+			<a href="reservationDetails/${reservation.code}"><spring:message code="index.moredetails"/></a>
+		</c:forEach>
+		<br><br>
+	</c:if> 
 	<spring:message code="index.hitcounter"/>${counter}
 	<script src="<c:url value="/resources/swebus/js/index.js" />"></script>
 

@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 import com.miw.model.Reservation;
 import com.miw.persistence.ReservationDataService;
@@ -38,7 +39,7 @@ public class ReservationDAO implements ReservationDataService {
 					+ "return_date,id_departure_time,id_return_time,one_way_trip,number_adults,number_youths,"
 					+ "number_students,number_seniors,number_disables,number_pets,extra_baggage,"
 					+ "priority_boarding,bike,insurance,price,id_payment,id_user) "
-					+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+					+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			ps.setInt(1, reservation.getDepartureTime().getIdRoute());
 			if (reservation.getReturnTime() != null){
 				ps.setInt(2, reservation.getReturnTime().getIdRoute());
@@ -211,5 +212,73 @@ public class ReservationDAO implements ReservationDataService {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public Vector<Reservation> getReservationsByIdUser(Integer idUser) throws Exception {
+		Vector<Reservation> resultado = new Vector<Reservation>();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = null;
+		CityDAO cityDao = new CityDAO();
+		TimeDAO timeDao = new TimeDAO();
+		try {
+			String SQL_DRV = "org.hsqldb.jdbcDriver";
+			String SQL_URL = "jdbc:hsqldb:hsql://localhost/swebus";
+
+			// Obtenemos la conexión a la base de datos.
+			Class.forName(SQL_DRV);
+			con = DriverManager.getConnection(SQL_URL, "mvidalgarcia", "swebus");
+			
+			// Obtener la reserva
+			ps = con.prepareStatement("select * from reservation where id_user=?");
+			ps.setInt(1, idUser);
+			rs = ps.executeQuery();
+			boolean empty = true;
+			while (rs.next()) {
+				Reservation reservation = new Reservation();
+				// Guardamos el horario obtenido
+				reservation.setCode(rs.getInt("code"));
+				reservation.setCityFrom((cityDao.getCitiesByIdRoute(rs.getInt("id_departure_route")).get("from")));
+				reservation.setCityTo((cityDao.getCitiesByIdRoute(rs.getInt("id_departure_route")).get("to")));
+				reservation.setPrice(rs.getDouble("price"));
+				reservation.setDepartureDate(rs.getString("departure_date"));
+				reservation.setReturnDate(rs.getString("return_date"));
+				reservation.setOneWayTrip(rs.getBoolean("one_way_trip"));
+				reservation.setDepartureTime(timeDao.getTimeById(rs.getInt("id_departure_time")));
+				if (!reservation.isOneWayTrip())
+					reservation.setReturnTime(timeDao.getTimeById(rs.getInt("id_return_time")));
+				reservation.setNumberAdults(rs.getInt("number_adults"));
+				reservation.setNumberDisables(rs.getInt("number_disables"));
+				reservation.setNumberPets(rs.getInt("number_pets"));
+				reservation.setNumberSeniors(rs.getInt("number_seniors"));
+				reservation.setNumberStudents(rs.getInt("number_students"));
+				reservation.setNumberYouths(rs.getInt("number_youths"));
+				reservation.setExtraBaggage(rs.getBoolean("extra_baggage"));
+				reservation.setPriorityBoarding(rs.getBoolean("priority_boarding"));
+				reservation.setBike(rs.getBoolean("bike"));
+				reservation.setInsurance(rs.getBoolean("insurance"));
+				// Meter la reserva al vector
+				System.out.println("[ReservationDAO] Reserva:" + reservation);
+				resultado.add(reservation);
+				System.out.println("[ReservationDAO] ArrayList Reserva:" + resultado);
+				empty = false;
+			}
+			// Si no retorna nada de DB devolvemos null
+			if (empty)
+				return null;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw (e);
+		} finally {
+			try {
+				ps.close();
+				con.close();
+			} catch (Exception e) {
+			}
+		}
+		return resultado;
+	
 	}
 }

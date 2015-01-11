@@ -16,6 +16,11 @@ public class Test {
 		System.out.println("------");
 		//System.out.println(resDao.deleteReservationByCode(34)); //False
 		//System.out.println(resDao.deleteReservationByCode(2)); //True
+		
+		/* OBTENER TODAS LAS RESERVAS DE UN USUARIO POR SU ID */
+		System.out.println("------");
+		System.out.println(resDao.getReservationsByIdUser(0));
+		//System.out.println(resDao.getReservationsByIdUser(1));
 	}
 
 }
