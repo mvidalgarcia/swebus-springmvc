@@ -30,6 +30,8 @@ public class PaymentController {
 		System.out.println("[PaymentController - showPaymentForm]  Entrando en Payment form");
 		// Método de pago por defecto (evita validaciones)
 		payment.setType("card");
+		// Pasar al modelo el precio total
+		model.addAttribute("totalprice", reservation.getPrice());
 		return "payment";
 	}
 	
@@ -39,6 +41,8 @@ public class PaymentController {
 		PaymentValidator paymentValidator= new PaymentValidator();
 		paymentValidator.validate(payment, result);
 		if (result.hasErrors()){
+			// Pasar al modelo el precio total
+			model.addAttribute("totalprice", reservation.getPrice());
 			return "payment";
 		}
 		else {

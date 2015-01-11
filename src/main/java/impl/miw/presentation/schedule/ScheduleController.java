@@ -73,6 +73,11 @@ public class ScheduleController {
 		else {
 			reservation.setPrice(scheduleDeparture.getPrice());
 		}
+		// Multiplicar precio por número de pasajeros
+		reservation.setPrice(reservation.getPrice() * (reservation.getNumberAdults() + 
+				reservation.getNumberDisables() + reservation.getNumberPets() + 
+				reservation.getNumberSeniors() + reservation.getNumberStudents() + 
+				reservation.getNumberYouths()));
 		System.out.println("[ScheduleController- submitSchedule] Estado de la reserva: " + reservation);
 		return "redirect:showAdditionals";
 	}

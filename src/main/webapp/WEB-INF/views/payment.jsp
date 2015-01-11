@@ -48,6 +48,8 @@
 		<spring:message code="payment.mobile"/>
 		<form:input path="mobile" />
 		<br>
+		<spring:message code="payment.totalprice"/>${totalprice}&#8364;
+		<br>
 		<input name="submit" type="submit" value="<spring:message code="payment.submit"/>" />
 	</form:form>
 	<script src="<c:url value="/resources/swebus/js/payment.js" />"></script>

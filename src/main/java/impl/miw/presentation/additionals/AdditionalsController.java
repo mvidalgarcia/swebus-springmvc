@@ -39,9 +39,19 @@ public class AdditionalsController {
 		else {
 			// Una vez que sabemos que el usuario está identificado, guardar su ID en la reserva.
 			reservation.setIdUser(userManager.findIdUserByEmail(sessionUser));
+			// Sumar al precio final el valor de los añadidos
+			addAdditionalsToPrice(reservation);
 			return "redirect:payment";
 		}
 
+	}
+	
+	// Función auxiliar
+	public void addAdditionalsToPrice(Reservation reservation){
+		if (reservation.isBike()) reservation.setPrice(reservation.getPrice() + 5.0);
+		if (reservation.isExtraBaggage()) reservation.setPrice(reservation.getPrice() + 5.0);
+		if (reservation.isInsurance()) reservation.setPrice(reservation.getPrice() + 5.0);
+		if (reservation.isPriorityBoarding()) reservation.setPrice(reservation.getPrice() + 5.0);
 	}
 
 }
