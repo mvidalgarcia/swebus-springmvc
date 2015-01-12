@@ -29,61 +29,72 @@
 	  	</div>
 	</div>
 	<!-- /Destinos más populares e imágenes -->
+	<!-- Organiza tu viaje  -->
 	<div class="container">
-	  	<div class="col-md-12">
-			<h3><spring:message code="index.planyourtrip"/></h3>
-			<form:form commandName="reservation">
-				<spring:message code="index.from"/>
-				<form:select itemValue="name" itemLabel="name"  path="cityFrom" items="${cities}"/>
-				<spring:message code="index.to"/>
-				<form:select itemValue="name" itemLabel="name"  path="cityTo" items="${cities}"/>
-				<form:errors path="cityTo" cssClass="text-danger"/><br/>
+	
+	
+	<div class="panel panel-default">
+  		<div class="panel-heading"><h3><spring:message code="index.planyourtrip"/></h3></div>
+  		<div class="panel-body">		
+			<form:form commandName="reservation" cssClass="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-1"><spring:message code="index.from"/></label>
+					<form:select itemValue="name" itemLabel="name"  path="cityFrom" items="${cities}" cssClass="col-sm-2"/>
 				
-				<spring:message code="index.departuredate"/>
-				<spring:message code="index.dateformat" var="dateformat"/>
-				<form:input path="departureDate" placeholder="${dateformat}"/>
-				<form:errors path="departureDate" cssClass="text-danger" />
-				<div id=returnDate>
-					<spring:message code="index.returndate" />
-					<form:input path="returnDate" placeholder="${dateformat}"/>
-					<form:errors path="returnDate" cssClass="text-danger" />
+					<label class="col-sm-1"><spring:message code="index.to"/></label>
+					<form:select itemValue="name" itemLabel="name"  path="cityTo" items="${cities}" cssClass="col-sm-2"/>
+					<form:errors path="cityTo" cssClass="text-danger"/><br/>
 				</div>
-				<br/>
+				<div class="form-group">
+					<label class="col-sm-1"><spring:message code="index.departuredate"/></label>
+					<spring:message code="index.dateformat" var="dateformat"/>
+					<form:input path="departureDate" placeholder="${dateformat}" cssClass="col-sm-2"/>
+					<div id=returnDate>
+						<label class="col-sm-1"><spring:message code="index.returndate" /></label>
+						<form:input path="returnDate" placeholder="${dateformat}" cssClass="col-sm-2"/>
+					</div>
+					<p><form:errors path="departureDate" cssClass="text-danger" /></p>
+					<p><form:errors path="returnDate" cssClass="text-danger" /></p>
+				</div>
+				
 				<spring:message code="index.onewaytrip"/>
 				<form:checkbox id="oneWayTrip" path="oneWayTrip"/>
-				<br/>
+				
 				<h4><spring:message code="index.passengers"/></h4>
-				<spring:message code="index.adult"/>
-				<form:select path="numberAdults" items="${numbers}"/>
-				<spring:message code="index.youth"/>
-				<form:select path="numberYouths" items="${numbers}"/>
-				<spring:message code="index.student"/>
-				<form:select path="numberStudents" items="${numbers}"/>
-				<br/>
-				<spring:message code="index.senior"/>
-				<form:select path="numberSeniors" items="${numbers}"/>
-				<spring:message code="index.disable"/>
-				<form:select path="numberDisables" items="${numbers}"/>
-				<spring:message code="index.pet"/>
-				<form:select path="numberPets" items="${numbers}"/>
-				<form:errors path="numberPets" cssClass="text-danger" />
-				<br/>
-				<input name="submit" type="submit" value="<spring:message code="index.search"/>" />
+				<div class="form-group">
+					<label class="col-sm-1"><spring:message code="index.adult"/></label>
+					<form:select path="numberAdults" items="${numbers}" cssClass="col-sm-1"/>
+					<label class="col-sm-1"><spring:message code="index.youth"/></label>
+					<form:select path="numberYouths" items="${numbers}" cssClass="col-sm-1"/>
+					<label class="col-sm-1"><spring:message code="index.student"/></label>
+					<form:select path="numberStudents" items="${numbers}" cssClass="col-sm-1"/>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1"><spring:message code="index.senior"/></label>
+					<form:select path="numberSeniors" items="${numbers}" cssClass="col-sm-1"/>
+					<label class="col-sm-1"><spring:message code="index.disable"/></label>
+					<form:select path="numberDisables" items="${numbers}" cssClass="col-sm-1"/>
+					<label class="col-sm-1"><spring:message code="index.pet"/></label>
+					<form:select path="numberPets" items="${numbers}" cssClass="col-sm-1"/>
+					<form:errors path="numberPets" cssClass="text-danger" />
+				</div>
+				<input name="submit" type="submit" value="<spring:message code="index.search"/>" class="btn btn-default" />
 			</form:form>
-			<!-- Historial de viajes de usuario -->
-			<c:if test="${not empty reservations}">
-				<hr>
-				<h4><spring:message code="index.record"/></h4>
-				<c:forEach items="${reservations}" var="reservation">
-					<div>${reservation.cityFrom} - ${reservation.cityTo} <small>${reservation.departureDate}</small></div>
-					<a href="reservationDetails/${reservation.code}"><spring:message code="index.moredetails"/></a>
-				</c:forEach>
-				<br><br>
-			</c:if> 
-			<spring:message code="index.hitcounter"/>${counter}
 		</div>
+		</div> <!-- /panel -->
+		
+		<!-- Historial de viajes de usuario -->
+		<c:if test="${not empty reservations}">
+			<h4><spring:message code="index.record"/></h4>
+			<c:forEach items="${reservations}" var="reservation">
+				<div>${reservation.cityFrom} - ${reservation.cityTo} <small>${reservation.departureDate}</small></div>
+				<a href="reservationDetails/${reservation.code}"><spring:message code="index.moredetails"/></a>
+			</c:forEach>
+			<br><br>
+		</c:if> 
+		<p><spring:message code="index.hitcounter"/>${counter}</p>
 	</div>
 	<script src="<c:url value="/resources/swebus/js/index.js" />"></script>
-
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

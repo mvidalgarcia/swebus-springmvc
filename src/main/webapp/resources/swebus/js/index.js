@@ -1,4 +1,9 @@
 $(document).ready(function($) {
+	//$('#returnDate').show()
+	if($('#oneWayTrip').is(":checked")){
+		$('#returnDate').hide()
+	}
+	
 	
 	$('#oneWayTrip').change(function() {
         if($(this).is(":checked")) {
