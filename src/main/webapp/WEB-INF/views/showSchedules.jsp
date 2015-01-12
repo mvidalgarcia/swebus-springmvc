@@ -15,69 +15,63 @@
 	<div class="container">
 
 		<form:form method="POST" commandName="schedulesSelected">
-			<div>
+			<div class="container">
 				<h4>
 					<spring:message code="showschedules.choose.departure" />
 					<c:out value="${reservation.cityFrom} - ${reservation.cityTo}"></c:out>
 					<c:out value="${reservation.departureDate}"></c:out>
 				</h4>
-				<br />
-				<table>
+				<table class="table table-hover">
 					<tr>
-						<td><b><spring:message code="showschedules.departure" /></b></td>
-						<td><b><spring:message code="showschedules.arrival" /></b></td>
-						<td><b><spring:message code="showschedules.traveltime" /></b></td>
-						<td><b><spring:message code="showschedules.price" /></b></td>
-						<td><b><spring:message code="showschedules.select" /></b></td>
+						<td><b><spring:message code="showschedules.departure"/></b></td>
+						<td><b><spring:message code="showschedules.arrival"/></b></td>
+						<td><b><spring:message code="showschedules.traveltime"/></b></td>
+						<td><b><spring:message code="showschedules.price"/></b></td>
+						<td><b><spring:message code="showschedules.select"/></b></td>
 					</tr>
 					<c:forEach items="${schedulesDeparture}" var="schedule">
 						<tr>
-							<td><c:out value="${schedule.hourDeparture}"></c:out></td>
-							<td><c:out value="${schedule.hourArrival}"></c:out></td>
-							<td><c:out
-									value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
-							<td><c:out value="${schedule.price}"></c:out></td>
+							<td><c:out value="${schedule.hourDeparture}"></c:out>:00</td>
+							<td><c:out value="${schedule.hourArrival}"></c:out>:00</td>
+							<td><c:out value="${schedule.hourArrival-schedule.hourDeparture}"></c:out> hr</td>
+							<td><c:out value="${schedule.price}"></c:out>&#8364;</td>
 							<td><form:radiobutton path="idDepartureSchedule" value="${schedule.id}" /></td>
-							<td></td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
 	
 			<c:if test="${not reservation.oneWayTrip}">
-				<div>
+				<div class="container">
 					<h4>
 						<spring:message code="showschedules.choose.return" />
 						<c:out value="${reservation.cityTo} - ${reservation.cityFrom}"></c:out>
 						<c:out value="${reservation.returnDate}"></c:out>
 					</h4>
-					<br />
-					<table>
+					<table class="table table-hover">
 						<tr>
-							<td><b><spring:message code="showschedules.departure" /></b></td>
-							<td><b><spring:message code="showschedules.arrival" /></b></td>
-							<td><b><spring:message code="showschedules.traveltime" /></b></td>
-							<td><b><spring:message code="showschedules.price" /></b></td>
-							<td><b><spring:message code="showschedules.select" /></b></td>
+							<td><b><spring:message code="showschedules.departure"/></b></td>
+							<td><b><spring:message code="showschedules.arrival"/></b></td>
+							<td><b><spring:message code="showschedules.traveltime"/></b></td>
+							<td><b><spring:message code="showschedules.price"/></b></td>
+							<td><b><spring:message code="showschedules.select"/></b></td>
 						</tr>
 						<c:forEach items="${schedulesReturn}" var="schedule">
 							<tr>
-								<td><c:out value="${schedule.hourDeparture}"></c:out></td>
-								<td><c:out value="${schedule.hourArrival}"></c:out></td>
-								<td><c:out
-										value="${schedule.hourArrival-schedule.hourDeparture}"></c:out></td>
-								<td><c:out value="${schedule.price}"></c:out></td>
-								<td><form:radiobutton path="idReturnSchedule" value="${schedule.id}" /></td>
+								<td><c:out value="${schedule.hourDeparture}"></c:out>:00</td>
+								<td><c:out value="${schedule.hourArrival}"></c:out>:00</td>
+								<td><c:out value="${schedule.hourArrival-schedule.hourDeparture}"></c:out> hr</td>
+								<td><c:out value="${schedule.price}"></c:out>&#8364;</td>
+								<td><form:radiobutton path="idReturnSchedule" value="${schedule.id}"/></td>
 							</tr>
 						</c:forEach>
 					</table>
 				</div>
 			</c:if>	
-		<input name="submit" type="submit" value="<spring:message code="showschedules.goon"/>" />
+		<input name="submit" type="submit" value="<spring:message code="showschedules.goon"/>" class="btn btn-default"/>
+		<button onclick="window.print()" class="btn btn-default"><spring:message code="showschedules.print"/></button>
 		</form:form>
-		<br>
-		<button onclick="window.print()"><spring:message code="showschedules.print"/></button>
 	</div>
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

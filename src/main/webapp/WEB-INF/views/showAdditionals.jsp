@@ -19,8 +19,9 @@
 			<p><spring:message code="showadditionals.priorityboarding" /> <form:checkbox path="priorityBoarding"/></p>
 			<p><spring:message code="showadditionals.bike" /> <form:checkbox path="bike"/></p>
 			<p><spring:message code="showadditionals.insurance" /> <form:checkbox path="insurance"/></p>
-			<input name="submit" type="submit" value="<spring:message code="showadditionals.topayment"/>" />
+			<input name="submit" type="submit" value="<spring:message code="showadditionals.topayment"/>" class="btn btn-default" />
 		</form:form>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

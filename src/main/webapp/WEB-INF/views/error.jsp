@@ -11,5 +11,6 @@
 		<br/>
 		<b><spring:message code="problem"/></b>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -11,23 +11,21 @@
 		<div class="container">
 			<h3><spring:message code="signin.title"/></h3>
 			<p><spring:message code="signin.introduce"/></p>
-		
-			<form:form commandName="user">
+			<form:form commandName="user" cssClass="form-horizontal">
 				<form:errors path="" cssClass="text-danger" />
-				<br />
-				<spring:message code="signin.email"/>
-				<form:input path="email" />
-				<form:errors path="email" cssClass="text-danger"/>
-				
-				<br />
-				<spring:message code="signin.password"/>
-				<form:password path="password" />
-				<form:errors path="password" cssClass="text-danger" />
-				
-				<br />
-				<input name="submit" type="submit" value="<spring:message code="signin.submit"/>" />
-				<input name="reset" type="reset" value="<spring:message code="signin.reset"/>"/>
+				<div class="form-group">
+					<label class="col-sm-1"><spring:message code="signin.email"/></label>
+					<form:input path="email" placeholder="email@domain.com" cssClass="col-sm-2" />
+					<form:errors path="email" cssClass="text-danger"/>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1"><spring:message code="signin.password"/></label>
+					<form:password path="password" placeholder="*****" cssClass="col-sm-2"/>
+					<form:errors path="password" cssClass="text-danger" />
+				</div>
+				<input name="submit" type="submit" value="<spring:message code="signin.submit"/>" class="btn btn-default" />
 			</form:form>
 		</div>
+		<jsp:include page="footer.jsp"/>
 	</body>
 </html>

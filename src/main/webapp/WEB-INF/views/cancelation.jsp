@@ -14,14 +14,16 @@
 		<h3><spring:message code="cancelation.title"/></h3>
 		<p><spring:message code="cancelation.introduce"/></p>
 	
-		<form:form commandName="cancelation">
+		<form:form commandName="cancelation" cssClass="form-horizontal">
 			<form:errors path="" cssClass="text-danger" /><br>
-			<spring:message code="cancelation.code"/>
-			<form:input path="code" />
-			<form:errors path="code" cssClass="text-danger"/>
-			<br />
-			<input name="submit" type="submit" value="<spring:message code="cancelation.submit"/>" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="cancelation.code"/></label>
+				<form:input path="code" cssClass="col-sm-2"/>
+				<form:errors path="code" cssClass="text-danger"/>
+			</div>
+			<input name="submit" type="submit" value="<spring:message code="cancelation.submit"/>" class="btn btn-default" />
 		</form:form>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

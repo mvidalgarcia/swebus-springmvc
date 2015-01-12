@@ -94,7 +94,7 @@
 		</c:if> 
 		<p><spring:message code="index.hitcounter"/>${counter}</p>
 	</div>
-	<script src="<c:url value="/resources/swebus/js/index.js" />"></script>
 	<jsp:include page="footer.jsp"/>
+	<script src="<c:url value="/resources/swebus/js/index.js" />"></script>
 </body>
 </html>

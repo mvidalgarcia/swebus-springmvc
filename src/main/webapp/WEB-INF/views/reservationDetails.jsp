@@ -10,20 +10,22 @@
 		<jsp:include page="header.jsp"/>
 		<div class="container">
 			<h3><spring:message code="reservation.reservationdata"/> <small><spring:message code="reservation.code"/>${reservation.code}</small></h3>
-			<spring:message code="reservation.departuretrip"/> ${reservation.departureDate}
+			<label><spring:message code="reservation.departuretrip"/> ${reservation.departureDate}</label>
 			<div>${reservation.cityFrom} - ${reservation.cityTo}</div>
-			<spring:message code="reservation.departuretime"/>${reservation.departureTime.hourDeparture}
-			<spring:message code="reservation.returntime"/>${reservation.departureTime.hourArrival}
+			<spring:message code="reservation.departuretime"/> ${reservation.departureTime.hourDeparture}:00
+			<spring:message code="reservation.returntime"/> ${reservation.departureTime.hourArrival}:00
 			<br>
 			<c:if test="${not reservation.oneWayTrip}">
 				<br>
-				<spring:message code="reservation.returntrip"/> ${reservation.returnDate}
+				<label><spring:message code="reservation.returntrip"/> ${reservation.returnDate}</label>
 				<div>${reservation.cityTo} - ${reservation.cityFrom}</div>
-				<spring:message code="reservation.departuretime"/>${reservation.returnTime.hourDeparture}
-				<spring:message code="reservation.returntime"/>${reservation.returnTime.hourArrival}
+				<spring:message code="reservation.departuretime"/> ${reservation.returnTime.hourDeparture}:00
+				<spring:message code="reservation.returntime"/> ${reservation.returnTime.hourArrival}:00
 				<br>
 			</c:if>
 			<!-- Passengers  -->
+			<br>
+			<label><spring:message code="reservation.passengers"/></label>
 			<c:if test="${reservation.numberAdults > 0}">
 				<br>
 				${reservation.numberAdults} <spring:message code="reservation.adults"/>
@@ -49,6 +51,8 @@
 				${reservation.numberPets} <spring:message code="reservation.pets"/>
 			</c:if>
 			<!-- Additionals  -->
+			<br><br>
+			<label><spring:message code="reservation.additionals"/></label>
 			<c:if test="${reservation.extraBaggage}">
 				<br>
 				<spring:message code="reservation.extrabaggage"/>
@@ -68,10 +72,13 @@
 			
 			
 			<br><br>
-			<spring:message code="reservation.total"/>${reservation.price}&#8364;
+			<div class="row">
+				<div class="alert alert-success col-sm-2"><spring:message code="reservation.total"/><strong>${reservation.price}&#8364;</strong></div>
+			</div>
 			<br>
-			<a href="/Swebus"><spring:message code="reservation.back"/></a>
-			<button onclick="window.print()"><spring:message code="reservation.print"/></button>
+			<a href="/Swebus"><spring:message code="reservation.back"/></a>&nbsp;&nbsp;
+			<button onclick="window.print()" class="btn btn-default"><spring:message code="reservation.print"/></button>
 		</div>
+		<jsp:include page="footer.jsp"/>
 	</body>
 </html>

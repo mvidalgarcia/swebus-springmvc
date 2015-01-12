@@ -14,72 +14,81 @@
 		<h3><spring:message code="signup.title"/></h3>
 		<p><spring:message code="signup.introduce"/></p>
 	
-		<form:form commandName="user">
+		<form:form commandName="user" cssClass="form-horizontal">
 			<form:errors path="" cssClass="text-danger" />
-			<br />
-			<spring:message code="signup.firstname"/>
-			<form:input path="firstName" />
-			<form:errors path="firstName" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.firstname"/></label>
+				<form:input path="firstName" cssClass="col-sm-2"  />
+				<form:errors path="firstName" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.lastname"/>
-			<form:input path="lastName" />
-			<form:errors path="lastName" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.lastname"/></label>
+				<form:input path="lastName" cssClass="col-sm-2" />
+				<form:errors path="lastName" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.email"/>
-			<form:input path="email" />
-			<form:errors path="email" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.email"/></label>
+				<form:input path="email" cssClass="col-sm-2" />
+				<form:errors path="email" cssClass="text-danger" />
+			</div>
+				
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.phone"/></label>
+				<form:input path="phone" cssClass="col-sm-2" />
+				<form:errors path="phone" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.phone"/>
-			<form:input path="phone" />
-			<form:errors path="phone" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.gender"/></label>
+				<form:select path="gender" cssClass="col-sm-2">
+					<spring:message code="signup.gender.male" var="male"/>
+					<spring:message code="signup.gender.female" var="female"/>
+					<form:option value="male" label="${male}"/>
+					<form:option value="female" label="${female}"/>
+				</form:select>
+				<form:errors path="gender" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.gender"/>
-			<form:select path="gender">
-				<spring:message code="signup.gender.male" var="male"/>
-				<spring:message code="signup.gender.female" var="female"/>
-				<form:option value="male" label="${male}"/>
-				<form:option value="female" label="${female}"/>
-			</form:select>
-			<form:errors path="gender" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.address"/></label>
+				<form:input path="address" cssClass="col-sm-2"/>
+				<form:errors path="address" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.address"/>
-			<form:input path="address" />
-			<form:errors path="address" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.zipcode"/></label>
+				<form:input path="zipCode" cssClass="col-sm-2"/>
+				<form:errors path="zipCode" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.zipcode"/>
-			<form:input path="zipCode" />
-			<form:errors path="zipCode" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.city"/></label>
+				<form:input path="city" cssClass="col-sm-2" />
+				<form:errors path="city" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.city"/>
-			<form:input path="city" />
-			<form:errors path="city" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.county"/></label>
+				<form:input path="county" cssClass="col-sm-2"/>
+				<form:errors path="county" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.county"/>
-			<form:input path="county" />
-			<form:errors path="county" cssClass="text-danger" />
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.idcard"/></label>
+				<form:input path="idCard" cssClass="col-sm-2"/>
+				<form:errors path="idCard" cssClass="text-danger" />
+			</div>
 			
-			<br />
-			<spring:message code="signup.idcard"/>
-			<form:input path="idCard" />
-			<form:errors path="idCard" cssClass="text-danger" />
-			
-			<br />
-			<spring:message code="signup.password"/>
-			<form:password path="password" />
-			<form:errors path="password" cssClass="text-danger" />
-			
-			<br />
-			<input name="submit" type="submit" value="<spring:message code="signup.submit"/>" />
-			<input name="reset" type="reset" value="<spring:message code="signup.reset"/>"/>
+			<div class="form-group">
+				<label class="col-sm-1"><spring:message code="signup.password"/></label>
+				<form:password path="password" cssClass="col-sm-2"/>
+				<form:errors path="password" cssClass="text-danger" />
+			</div>
+			<input name="submit" type="submit" value="<spring:message code="signup.submit"/>" class="btn btn-default" />
 		</form:form>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>
