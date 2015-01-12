@@ -78,7 +78,7 @@ public class LoginController {
 		}
 		
 		System.out.println("[LoginController] Usuario registrado");
-		return "index";
+		return "redirect:";
 
 	}
 
