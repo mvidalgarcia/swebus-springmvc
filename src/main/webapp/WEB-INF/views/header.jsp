@@ -19,9 +19,9 @@
           <p class="navbar-text welcome-text"><spring:message code="header.welcome"/></p>
         </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="signIn"><spring:message code="signin"/></a></li>
-            <li><a href="signUp"><spring:message code="signup"/></a></li>
-            <li><a href="cancelation"><spring:message code="cancel.reservation"/></a></li>
+            <li><a href="/Swebus/signIn"><spring:message code="signin"/></a></li>
+            <li><a href="/Swebus/signUp"><spring:message code="signup"/></a></li>
+            <li><a href="/Swebus/cancelation"><spring:message code="cancel.reservation"/></a></li>
             <c:if test="${not empty sessionUser}">
            	 <li><p class="navbar-text"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
            	  <strong><c:out value="${sessionUser}"></c:out></strong><p></li>
