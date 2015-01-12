@@ -1,2 +1,2 @@
 # swebus-springmvc
-![alt text](http://oi62.tinypic.com/29c99qp.jpg "Screenshot")
+![alt text](http://oi60.tinypic.com/e04gaq.jpg "Screenshot")
