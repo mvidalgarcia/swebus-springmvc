@@ -81,5 +81,13 @@ public class LoginController {
 		return "redirect:";
 
 	}
+	
+	@RequestMapping(value = "/logOut", method = RequestMethod.GET)
+	public String logOut(Model model, HttpSession session) {
+		System.out.println("[LoginController - LogOut] Cerrando sesión usuario " + session.getAttribute("sessionUser"));
+		// Vaciar el objeto de sesión 
+		session.setAttribute("sessionUser", null);
+		return "redirect:";
+	}
 
 }

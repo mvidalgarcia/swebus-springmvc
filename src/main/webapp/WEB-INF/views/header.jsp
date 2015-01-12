@@ -24,7 +24,8 @@
             <li><a href="/Swebus/cancelation"><spring:message code="cancel.reservation"/></a></li>
             <c:if test="${not empty sessionUser}">
            	 <li><p class="navbar-text"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-           	  <strong><c:out value="${sessionUser}"></c:out></strong><p></li>
+           	  <strong><c:out value="${sessionUser}"></c:out></strong></p></li>
+           	  <li><a href="/Swebus/logOut"><strong><span class="glyphicon glyphicon-off" aria-hidden="true"></span></strong></a></li>
             </c:if>
           </ul>
       </div>
