@@ -9,7 +9,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -18,6 +18,8 @@
           <a class="navbar-brand" href="/Swebus"><spring:message code="header.title"/></a>
           <p class="navbar-text welcome-text"><spring:message code="header.welcome"/></p>
         </div>
+        
+        <div class="collapse navbar-collapse" id="mynavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/Swebus/signIn"><spring:message code="signin"/></a></li>
             <li><a href="/Swebus/signUp"><spring:message code="signup"/></a></li>
@@ -28,6 +30,7 @@
            	  <li><a href="/Swebus/logOut"><strong><span class="glyphicon glyphicon-off" aria-hidden="true"></span></strong></a></li>
             </c:if>
           </ul>
+          </div>
       </div>
     </nav>
     <br><br><br><br><br><br>

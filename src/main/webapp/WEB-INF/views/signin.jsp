@@ -14,13 +14,13 @@
 			<form:form commandName="user" cssClass="form-horizontal">
 				<form:errors path="" cssClass="text-danger" />
 				<div class="form-group">
-					<label class="col-sm-1"><spring:message code="signin.email"/></label>
-					<form:input path="email" placeholder="email@domain.com" cssClass="col-sm-2" />
+					<label class="col-xs-3 col-sm-2 col-md-2 col-lg-1"><spring:message code="signin.email"/></label>
+					<form:input path="email" placeholder="email@domain.com" cssClass="col-sm-3 col-md-2" />
 					<form:errors path="email" cssClass="text-danger"/>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-1"><spring:message code="signin.password"/></label>
-					<form:password path="password" placeholder="*****" cssClass="col-sm-2"/>
+					<label class="col-xs-3 col-sm-2 col-md-2 col-lg-1"><spring:message code="signin.password"/></label>
+					<form:password path="password" placeholder="*****" cssClass="col-sm-3 col-md-2"/>
 					<form:errors path="password" cssClass="text-danger" />
 				</div>
 				<input name="submit" type="submit" value="<spring:message code="signin.submit"/>" class="btn btn-default" />

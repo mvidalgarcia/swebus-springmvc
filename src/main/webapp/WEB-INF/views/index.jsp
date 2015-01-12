@@ -38,20 +38,20 @@
   		<div class="panel-body">		
 			<form:form commandName="reservation" cssClass="form-horizontal">
 				<div class="form-group">
-					<label class="col-sm-1"><spring:message code="index.from"/></label>
-					<form:select itemValue="name" itemLabel="name"  path="cityFrom" items="${cities}" cssClass="col-sm-2"/>
+					<label class="col-sm-2 col-md-1"><spring:message code="index.from"/></label>
+					<form:select itemValue="name" itemLabel="name"  path="cityFrom" items="${cities}" cssClass="col-sm-3 col-md-2"/>
 				
-					<label class="col-sm-1"><spring:message code="index.to"/></label>
-					<form:select itemValue="name" itemLabel="name"  path="cityTo" items="${cities}" cssClass="col-sm-2"/>
+					<label class="col-sm-2 col-md-1"><spring:message code="index.to"/></label>
+					<form:select itemValue="name" itemLabel="name"  path="cityTo" items="${cities}" cssClass="col-sm-3 col-md-2"/>
 					<form:errors path="cityTo" cssClass="text-danger"/><br/>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-1"><spring:message code="index.departuredate"/></label>
+					<label class="col-sm-2 col-md-1"><spring:message code="index.departuredate"/></label>
 					<spring:message code="index.dateformat" var="dateformat"/>
-					<form:input path="departureDate" placeholder="${dateformat}" cssClass="col-sm-2"/>
+					<form:input path="departureDate" placeholder="${dateformat}" cssClass="col-sm-3 col-md-2"/>
 					<div id=returnDate>
-						<label class="col-sm-1"><spring:message code="index.returndate" /></label>
-						<form:input path="returnDate" placeholder="${dateformat}" cssClass="col-sm-2"/>
+						<label class="col-sm-2 col-md-1"><spring:message code="index.returndate" /></label>
+						<form:input path="returnDate" placeholder="${dateformat}" cssClass="col-sm-3 col-md-2"/>
 					</div>
 					<p><form:errors path="departureDate" cssClass="text-danger" /></p>
 					<p><form:errors path="returnDate" cssClass="text-danger" /></p>
@@ -62,20 +62,20 @@
 				
 				<h4><spring:message code="index.passengers"/></h4>
 				<div class="form-group">
-					<label class="col-sm-1"><spring:message code="index.adult"/></label>
-					<form:select path="numberAdults" items="${numbers}" cssClass="col-sm-1"/>
-					<label class="col-sm-1"><spring:message code="index.youth"/></label>
-					<form:select path="numberYouths" items="${numbers}" cssClass="col-sm-1"/>
-					<label class="col-sm-1"><spring:message code="index.student"/></label>
-					<form:select path="numberStudents" items="${numbers}" cssClass="col-sm-1"/>
+					<label class="col-sm-2 col-md-2 col-lg-1"><spring:message code="index.adult"/></label>
+					<form:select path="numberAdults" items="${numbers}" cssClass="col-sm-2 col-md-1"/>
+					<label class="col-sm-2 col-md-2 col-lg-1"><spring:message code="index.youth"/></label>
+					<form:select path="numberYouths" items="${numbers}" cssClass="col-sm-2 col-md-1"/>
+					<label class="col-sm-2 col-md-2 col-lg-1"><spring:message code="index.student"/></label>
+					<form:select path="numberStudents" items="${numbers}" cssClass="col-sm-2 col-md-1"/>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-1"><spring:message code="index.senior"/></label>
-					<form:select path="numberSeniors" items="${numbers}" cssClass="col-sm-1"/>
-					<label class="col-sm-1"><spring:message code="index.disable"/></label>
-					<form:select path="numberDisables" items="${numbers}" cssClass="col-sm-1"/>
-					<label class="col-sm-1"><spring:message code="index.pet"/></label>
-					<form:select path="numberPets" items="${numbers}" cssClass="col-sm-1"/>
+					<label class="col-sm-2 col-md-2 col-lg-1"><spring:message code="index.senior"/></label>
+					<form:select path="numberSeniors" items="${numbers}" cssClass="col-sm-2 col-md-1"/>
+					<label class="col-sm-2 col-md-2 col-lg-1"><spring:message code="index.disable"/></label>
+					<form:select path="numberDisables" items="${numbers}" cssClass="col-sm-2 col-md-1"/>
+					<label class="col-sm-2 col-md-2 col-lg-1"><spring:message code="index.pet"/></label>
+					<form:select path="numberPets" items="${numbers}" cssClass="col-sm-2 col-md-1"/>
 					<form:errors path="numberPets" cssClass="text-danger" />
 				</div>
 				<input name="submit" type="submit" value="<spring:message code="index.search"/>" class="btn btn-default" />

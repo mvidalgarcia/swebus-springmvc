@@ -17,7 +17,7 @@
 		<form:form commandName="cancelation" cssClass="form-horizontal">
 			<form:errors path="" cssClass="text-danger" /><br>
 			<div class="form-group">
-				<label class="col-sm-1"><spring:message code="cancelation.code"/></label>
+				<label class="col-xs-3 col-sm-2 col-md-2 col-lg-1"><spring:message code="cancelation.code"/></label>
 				<form:input path="code" cssClass="col-sm-2"/>
 				<form:errors path="code" cssClass="text-danger"/>
 			</div>
